@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accountId** | [**UUID**](UUID.md) |  | 
+**accountId** | **String** |  | 
 **date** | [**LocalDate**](LocalDate.md) |  | 
 **amount** | [**BigDecimal**](BigDecimal.md) | The transaction amount in milliunits format | 
 **cleared** | [**ClearedEnum**](#ClearedEnum) | The cleared status of the transaction |  [optional]

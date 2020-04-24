@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**UUID**](UUID.md) |  | 
-**categoryGroupId** | [**UUID**](UUID.md) |  | 
+**id** | **String** |  | 
+**categoryGroupId** | **String** |  | 
 **name** | **String** |  | 
 **hidden** | **Boolean** | Whether or not the category is hidden | 
 **budgeted** | [**BigDecimal**](BigDecimal.md) | Budgeted amount in current month in milliunits format | 

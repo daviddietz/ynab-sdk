@@ -5,7 +5,7 @@
     <artifactId>ynab-sdk</artifactId>
     <packaging>jar</packaging>
     <name>ynab-sdk</name>
-    <version>0.0.1</version>
+    <version>0.0.3</version>
     <url>https://github.com/daviddietz/ynab-sdk</url>
     <description>YNAB Java SDK</description>
     <licenses>
@@ -151,6 +151,24 @@
                     </execution>
                 </executions>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>io.swagger</groupId>-->
+<!--                <artifactId>swagger-codegen-maven-plugin</artifactId>-->
+<!--                <version>2.3.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            &lt;!&ndash; specify the swagger yaml &ndash;&gt;-->
+<!--                            <inputSpec>swagger.yaml</inputSpec>-->
+<!--                            &lt;!&ndash; target to generate java client code &ndash;&gt;-->
+<!--                            <language>java</language>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

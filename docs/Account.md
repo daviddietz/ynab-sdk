@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**UUID**](UUID.md) |  | 
+**id** | **String** |  | 
 **name** | **String** |  | 
 **type** | [**TypeEnum**](#TypeEnum) | The type of account. Note: payPal, merchantAccount, investmentAccount, and mortgage types have been deprecated and will be removed in the future. | 
 **onBudget** | **Boolean** | Whether this account is on budget or not | 
