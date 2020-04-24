@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.List;
 import org.threeten.bp.LocalDate;
 import ynab.client.model.SubTransaction;
 import ynab.client.model.TransactionSummary;
@@ -36,7 +36,7 @@ import ynab.client.model.TransactionSummary;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class TransactionDetail {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("date")
   private LocalDate date = null;
@@ -100,7 +100,7 @@ public class TransactionDetail {
   private Boolean approved = null;
 
   @SerializedName("account_id")
-  private UUID accountId = null;
+  private String accountId = null;
 
   @SerializedName("deleted")
   private Boolean deleted = null;
@@ -111,7 +111,7 @@ public class TransactionDetail {
   @SerializedName("subtransactions")
   private List<SubTransaction> subtransactions = new ArrayList<SubTransaction>();
 
-  public TransactionDetail id(UUID id) {
+  public TransactionDetail id(String id) {
     this.id = id;
     return this;
   }
@@ -121,11 +121,11 @@ public class TransactionDetail {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -201,7 +201,7 @@ public class TransactionDetail {
     this.approved = approved;
   }
 
-  public TransactionDetail accountId(UUID accountId) {
+  public TransactionDetail accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -211,11 +211,11 @@ public class TransactionDetail {
    * @return accountId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getAccountId() {
+  public String getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(UUID accountId) {
+  public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 

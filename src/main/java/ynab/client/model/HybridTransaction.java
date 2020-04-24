@@ -23,7 +23,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
 import org.threeten.bp.LocalDate;
 import ynab.client.model.TransactionSummary;
 
@@ -33,7 +32,7 @@ import ynab.client.model.TransactionSummary;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class HybridTransaction {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("date")
   private LocalDate date = null;
@@ -97,7 +96,7 @@ public class HybridTransaction {
   private Boolean approved = null;
 
   @SerializedName("account_id")
-  private UUID accountId = null;
+  private String accountId = null;
 
   @SerializedName("deleted")
   private Boolean deleted = null;
@@ -155,7 +154,7 @@ public class HybridTransaction {
   @SerializedName("account_name")
   private String accountName = null;
 
-  public HybridTransaction id(UUID id) {
+  public HybridTransaction id(String id) {
     this.id = id;
     return this;
   }
@@ -165,11 +164,11 @@ public class HybridTransaction {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -245,7 +244,7 @@ public class HybridTransaction {
     this.approved = approved;
   }
 
-  public HybridTransaction accountId(UUID accountId) {
+  public HybridTransaction accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -255,11 +254,11 @@ public class HybridTransaction {
    * @return accountId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getAccountId() {
+  public String getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(UUID accountId) {
+  public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 

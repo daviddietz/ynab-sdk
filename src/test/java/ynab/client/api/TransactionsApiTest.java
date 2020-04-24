@@ -22,7 +22,7 @@ import org.threeten.bp.LocalDate;
 import ynab.client.model.SaveTransactionWrapper;
 import ynab.client.model.TransactionResponse;
 import ynab.client.model.TransactionsResponse;
-import java.util.UUID;
+import java.util.List;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -50,7 +50,7 @@ public class TransactionsApiTest {
      */
     @Test
     public void bulkCreateTransactionsTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         BulkTransactions transactions = null;
         BulkResponse response = api.bulkCreateTransactions(budgetId, transactions);
 
@@ -67,7 +67,7 @@ public class TransactionsApiTest {
      */
     @Test
     public void createTransactionTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         SaveTransactionWrapper transaction = null;
         TransactionResponse response = api.createTransaction(budgetId, transaction);
 
@@ -84,7 +84,7 @@ public class TransactionsApiTest {
      */
     @Test
     public void getTransactionsTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         LocalDate sinceDate = null;
         String type = null;
         TransactionsResponse response = api.getTransactions(budgetId, sinceDate, type);
@@ -102,8 +102,8 @@ public class TransactionsApiTest {
      */
     @Test
     public void getTransactionsByAccountTest() throws ApiException {
-        UUID budgetId = null;
-        UUID accountId = null;
+        String budgetId = null;
+        String accountId = null;
         LocalDate sinceDate = null;
         TransactionsResponse response = api.getTransactionsByAccount(budgetId, accountId, sinceDate);
 
@@ -120,8 +120,8 @@ public class TransactionsApiTest {
      */
     @Test
     public void getTransactionsByCategoryTest() throws ApiException {
-        UUID budgetId = null;
-        UUID categoryId = null;
+        String budgetId = null;
+        String categoryId = null;
         LocalDate sinceDate = null;
         HybridTransactionsResponse response = api.getTransactionsByCategory(budgetId, categoryId, sinceDate);
 
@@ -138,8 +138,8 @@ public class TransactionsApiTest {
      */
     @Test
     public void getTransactionsByIdTest() throws ApiException {
-        UUID budgetId = null;
-        UUID transactionId = null;
+        String budgetId = null;
+        String transactionId = null;
         TransactionResponse response = api.getTransactionsById(budgetId, transactionId);
 
         // TODO: test validations
@@ -155,8 +155,8 @@ public class TransactionsApiTest {
      */
     @Test
     public void getTransactionsByPayeeTest() throws ApiException {
-        UUID budgetId = null;
-        UUID payeeId = null;
+        String budgetId = null;
+        String payeeId = null;
         LocalDate sinceDate = null;
         HybridTransactionsResponse response = api.getTransactionsByPayee(budgetId, payeeId, sinceDate);
 
@@ -173,8 +173,8 @@ public class TransactionsApiTest {
      */
     @Test
     public void updateTransactionTest() throws ApiException {
-        UUID budgetId = null;
-        UUID transactionId = null;
+        String budgetId = null;
+        String transactionId = null;
         SaveTransactionWrapper transaction = null;
         TransactionResponse response = api.updateTransaction(budgetId, transactionId, transaction);
 

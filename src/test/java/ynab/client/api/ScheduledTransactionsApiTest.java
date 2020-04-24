@@ -17,7 +17,7 @@ import ynab.client.invoker.ApiException;
 import ynab.client.model.ErrorResponse;
 import ynab.client.model.ScheduledTransactionResponse;
 import ynab.client.model.ScheduledTransactionsResponse;
-import java.util.UUID;
+import java.util.List;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,8 +45,8 @@ public class ScheduledTransactionsApiTest {
      */
     @Test
     public void getScheduledTransactionByIdTest() throws ApiException {
-        UUID budgetId = null;
-        UUID scheduledTransactionId = null;
+        String budgetId = null;
+        String scheduledTransactionId = null;
         ScheduledTransactionResponse response = api.getScheduledTransactionById(budgetId, scheduledTransactionId);
 
         // TODO: test validations
@@ -62,7 +62,7 @@ public class ScheduledTransactionsApiTest {
      */
     @Test
     public void getScheduledTransactionsTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         ScheduledTransactionsResponse response = api.getScheduledTransactions(budgetId);
 
         // TODO: test validations

@@ -5,7 +5,7 @@
     <artifactId>ynab-sdk</artifactId>
     <packaging>jar</packaging>
     <name>ynab-sdk</name>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <url>https://github.com/daviddietz/ynab-sdk</url>
     <description>YNAB Java SDK</description>
     <licenses>
@@ -160,9 +160,10 @@
             <build>
                 <plugins>
                     <plugin>
+                        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -172,6 +173,13 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <source>1.8</source>
+                            <target>1.8</target>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -209,6 +217,11 @@
                 <artifactId>threetenbp</artifactId>
                 <version>${threetenbp-version}</version>
             </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
         <!-- test dependencies -->
         <dependency>
             <groupId>junit</groupId>
@@ -216,9 +229,16 @@
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>2.0.2-beta</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <properties>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <gson-fire-version>1.8.0</gson-fire-version>

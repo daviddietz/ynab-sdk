@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.UUID;
 import ynab.client.model.CurrencyFormat;
 import ynab.client.model.DateFormat;
 
@@ -32,7 +31,7 @@ import ynab.client.model.DateFormat;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class BudgetSummary {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
@@ -43,7 +42,7 @@ public class BudgetSummary {
   @SerializedName("currency_format")
   private CurrencyFormat currencyFormat = null;
 
-  public BudgetSummary id(UUID id) {
+  public BudgetSummary id(String id) {
     this.id = id;
     return this;
   }
@@ -53,11 +52,11 @@ public class BudgetSummary {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 

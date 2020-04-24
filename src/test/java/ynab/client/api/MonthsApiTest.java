@@ -18,7 +18,7 @@ import ynab.client.model.ErrorResponse;
 import org.threeten.bp.LocalDate;
 import ynab.client.model.MonthDetailResponse;
 import ynab.client.model.MonthSummariesResponse;
-import java.util.UUID;
+import java.util.List;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -46,7 +46,7 @@ public class MonthsApiTest {
      */
     @Test
     public void getBudgetMonthTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         LocalDate month = null;
         MonthDetailResponse response = api.getBudgetMonth(budgetId, month);
 
@@ -63,7 +63,7 @@ public class MonthsApiTest {
      */
     @Test
     public void getBudgetMonthsTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         MonthSummariesResponse response = api.getBudgetMonths(budgetId);
 
         // TODO: test validations

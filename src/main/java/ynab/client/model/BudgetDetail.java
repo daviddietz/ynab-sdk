@@ -24,7 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import ynab.client.model.Account;
 import ynab.client.model.BudgetSummary;
 import ynab.client.model.Category;
@@ -45,7 +44,7 @@ import ynab.client.model.TransactionSummary;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class BudgetDetail {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
@@ -86,7 +85,7 @@ public class BudgetDetail {
   @SerializedName("scheduled_subtransactions")
   private List<ScheduledSubTransaction> scheduledSubtransactions = null;
 
-  public BudgetDetail id(UUID id) {
+  public BudgetDetail id(String id) {
     this.id = id;
     return this;
   }
@@ -96,11 +95,11 @@ public class BudgetDetail {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 

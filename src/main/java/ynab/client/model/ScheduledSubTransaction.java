@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.List;
 
 /**
  * ScheduledSubTransaction
@@ -31,10 +31,10 @@ import java.util.UUID;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class ScheduledSubTransaction {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("scheduled_transaction_id")
-  private UUID scheduledTransactionId = null;
+  private String scheduledTransactionId = null;
 
   @SerializedName("amount")
   private BigDecimal amount = null;
@@ -42,7 +42,7 @@ public class ScheduledSubTransaction {
   @SerializedName("deleted")
   private Boolean deleted = null;
 
-  public ScheduledSubTransaction id(UUID id) {
+  public ScheduledSubTransaction id(String id) {
     this.id = id;
     return this;
   }
@@ -52,15 +52,15 @@ public class ScheduledSubTransaction {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public ScheduledSubTransaction scheduledTransactionId(UUID scheduledTransactionId) {
+  public ScheduledSubTransaction scheduledTransactionId(String scheduledTransactionId) {
     this.scheduledTransactionId = scheduledTransactionId;
     return this;
   }
@@ -70,11 +70,11 @@ public class ScheduledSubTransaction {
    * @return scheduledTransactionId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getScheduledTransactionId() {
+  public String getScheduledTransactionId() {
     return scheduledTransactionId;
   }
 
-  public void setScheduledTransactionId(UUID scheduledTransactionId) {
+  public void setScheduledTransactionId(String scheduledTransactionId) {
     this.scheduledTransactionId = scheduledTransactionId;
   }
 

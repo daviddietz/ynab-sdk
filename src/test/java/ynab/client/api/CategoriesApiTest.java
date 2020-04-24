@@ -17,7 +17,7 @@ import ynab.client.invoker.ApiException;
 import ynab.client.model.CategoriesResponse;
 import ynab.client.model.CategoryResponse;
 import ynab.client.model.ErrorResponse;
-import java.util.UUID;
+import java.util.List;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,7 +45,7 @@ public class CategoriesApiTest {
      */
     @Test
     public void getCategoriesTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         CategoriesResponse response = api.getCategories(budgetId);
 
         // TODO: test validations
@@ -61,8 +61,8 @@ public class CategoriesApiTest {
      */
     @Test
     public void getCategoryByIdTest() throws ApiException {
-        UUID budgetId = null;
-        UUID categoryId = null;
+        String budgetId = null;
+        String categoryId = null;
         CategoryResponse response = api.getCategoryById(budgetId, categoryId);
 
         // TODO: test validations

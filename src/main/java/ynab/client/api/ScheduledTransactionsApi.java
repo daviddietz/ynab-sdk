@@ -30,7 +30,6 @@ import java.io.IOException;
 import ynab.client.model.ErrorResponse;
 import ynab.client.model.ScheduledTransactionResponse;
 import ynab.client.model.ScheduledTransactionsResponse;
-import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -66,7 +65,7 @@ public class ScheduledTransactionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getScheduledTransactionByIdCall(UUID budgetId, UUID scheduledTransactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getScheduledTransactionByIdCall(String budgetId, String scheduledTransactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -110,7 +109,7 @@ public class ScheduledTransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getScheduledTransactionByIdValidateBeforeCall(UUID budgetId, UUID scheduledTransactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getScheduledTransactionByIdValidateBeforeCall(String budgetId, String scheduledTransactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -136,7 +135,7 @@ public class ScheduledTransactionsApi {
      * @return ScheduledTransactionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ScheduledTransactionResponse getScheduledTransactionById(UUID budgetId, UUID scheduledTransactionId) throws ApiException {
+    public ScheduledTransactionResponse getScheduledTransactionById(String budgetId, String scheduledTransactionId) throws ApiException {
         ApiResponse<ScheduledTransactionResponse> resp = getScheduledTransactionByIdWithHttpInfo(budgetId, scheduledTransactionId);
         return resp.getData();
     }
@@ -149,7 +148,7 @@ public class ScheduledTransactionsApi {
      * @return ApiResponse&lt;ScheduledTransactionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ScheduledTransactionResponse> getScheduledTransactionByIdWithHttpInfo(UUID budgetId, UUID scheduledTransactionId) throws ApiException {
+    public ApiResponse<ScheduledTransactionResponse> getScheduledTransactionByIdWithHttpInfo(String budgetId, String scheduledTransactionId) throws ApiException {
         com.squareup.okhttp.Call call = getScheduledTransactionByIdValidateBeforeCall(budgetId, scheduledTransactionId, null, null);
         Type localVarReturnType = new TypeToken<ScheduledTransactionResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -164,7 +163,7 @@ public class ScheduledTransactionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getScheduledTransactionByIdAsync(UUID budgetId, UUID scheduledTransactionId, final ApiCallback<ScheduledTransactionResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getScheduledTransactionByIdAsync(String budgetId, String scheduledTransactionId, final ApiCallback<ScheduledTransactionResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -198,7 +197,7 @@ public class ScheduledTransactionsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getScheduledTransactionsCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getScheduledTransactionsCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -241,7 +240,7 @@ public class ScheduledTransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getScheduledTransactionsValidateBeforeCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getScheduledTransactionsValidateBeforeCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -261,7 +260,7 @@ public class ScheduledTransactionsApi {
      * @return ScheduledTransactionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ScheduledTransactionsResponse getScheduledTransactions(UUID budgetId) throws ApiException {
+    public ScheduledTransactionsResponse getScheduledTransactions(String budgetId) throws ApiException {
         ApiResponse<ScheduledTransactionsResponse> resp = getScheduledTransactionsWithHttpInfo(budgetId);
         return resp.getData();
     }
@@ -273,7 +272,7 @@ public class ScheduledTransactionsApi {
      * @return ApiResponse&lt;ScheduledTransactionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ScheduledTransactionsResponse> getScheduledTransactionsWithHttpInfo(UUID budgetId) throws ApiException {
+    public ApiResponse<ScheduledTransactionsResponse> getScheduledTransactionsWithHttpInfo(String budgetId) throws ApiException {
         com.squareup.okhttp.Call call = getScheduledTransactionsValidateBeforeCall(budgetId, null, null);
         Type localVarReturnType = new TypeToken<ScheduledTransactionsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -287,7 +286,7 @@ public class ScheduledTransactionsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getScheduledTransactionsAsync(UUID budgetId, final ApiCallback<ScheduledTransactionsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getScheduledTransactionsAsync(String budgetId, final ApiCallback<ScheduledTransactionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

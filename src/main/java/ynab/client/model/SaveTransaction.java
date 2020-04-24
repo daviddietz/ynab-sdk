@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.List;
 import org.threeten.bp.LocalDate;
 
 /**
@@ -32,7 +32,7 @@ import org.threeten.bp.LocalDate;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class SaveTransaction {
   @SerializedName("account_id")
-  private UUID accountId = null;
+  private String accountId = null;
 
   @SerializedName("date")
   private LocalDate date = null;
@@ -95,7 +95,7 @@ public class SaveTransaction {
   @SerializedName("approved")
   private Boolean approved = null;
 
-  public SaveTransaction accountId(UUID accountId) {
+  public SaveTransaction accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -105,11 +105,11 @@ public class SaveTransaction {
    * @return accountId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getAccountId() {
+  public String getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(UUID accountId) {
+  public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 

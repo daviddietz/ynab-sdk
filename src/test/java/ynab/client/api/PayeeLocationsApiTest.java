@@ -17,7 +17,7 @@ import ynab.client.invoker.ApiException;
 import ynab.client.model.ErrorResponse;
 import ynab.client.model.PayeeLocationResponse;
 import ynab.client.model.PayeeLocationsResponse;
-import java.util.UUID;
+import java.util.List;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -45,8 +45,8 @@ public class PayeeLocationsApiTest {
      */
     @Test
     public void getPayeeLocationByIdTest() throws ApiException {
-        UUID budgetId = null;
-        UUID payeeLocationId = null;
+        String budgetId = null;
+        String payeeLocationId = null;
         PayeeLocationResponse response = api.getPayeeLocationById(budgetId, payeeLocationId);
 
         // TODO: test validations
@@ -62,7 +62,7 @@ public class PayeeLocationsApiTest {
      */
     @Test
     public void getPayeeLocationsTest() throws ApiException {
-        UUID budgetId = null;
+        String budgetId = null;
         PayeeLocationsResponse response = api.getPayeeLocations(budgetId);
 
         // TODO: test validations
@@ -78,8 +78,8 @@ public class PayeeLocationsApiTest {
      */
     @Test
     public void getPayeeLocationsByPayeeTest() throws ApiException {
-        UUID budgetId = null;
-        UUID payeeId = null;
+        String budgetId = null;
+        String payeeId = null;
         PayeeLocationsResponse response = api.getPayeeLocationsByPayee(budgetId, payeeId);
 
         // TODO: test validations

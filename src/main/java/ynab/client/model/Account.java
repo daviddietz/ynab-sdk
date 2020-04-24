@@ -23,7 +23,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 /**
  * Account
@@ -31,7 +30,7 @@ import java.util.UUID;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class Account {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
@@ -122,7 +121,7 @@ public class Account {
   @SerializedName("deleted")
   private Boolean deleted = null;
 
-  public Account id(UUID id) {
+  public Account id(String id) {
     this.id = id;
     return this;
   }
@@ -132,11 +131,11 @@ public class Account {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
