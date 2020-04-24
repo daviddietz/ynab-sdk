@@ -2,14 +2,22 @@
 
 ## Requirements
 
-Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
+Building the API client library requires [Maven](https://maven.apache.org/) be installed.
+ 
+Supported Java version: 8
+
+Make sure to run Maven commands with Java version 8 as well.
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
+To install the API client library to your local Maven repository, simply execute this command from the ynam-sdk project:
 
 ```shell
-mvn install
+mvn install:install-file -Dfile=target/ynab-sdk-0.0.1.jar -DgroupId=ynab.sdk -DartifactId=ynam-sdk -Dversion=0.0.1 -Dpackaging=jar
+```
+or
+```shell
+mvn install:install-file -Dfile=target/ynab-sdk-0.0.1.jar -DpomFile=pom.xml
 ```
 
 To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
@@ -17,7 +25,6 @@ To deploy it to a remote Maven repository instead, configure the settings of the
 ```shell
 mvn deploy
 ```
-
 Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
 
 ### Maven users
@@ -28,7 +35,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ynab.sdk</groupId>
     <artifactId>ynab-sdk</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -38,7 +45,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "ynab.sdk:ynab-sdk:0.0.1-SNAPSHOT"
+compile "ynab.sdk:ynab-sdk:0.0.1"
 ```
 
 ### Others
@@ -49,19 +56,19 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/ynab-sdk-0.0.1-SNAPSHOT.jar
+* target/ynab-sdk-0.0.1.jar
 * target/lib/*.jar
 
 ## Getting Started
 
-Please follow the [installation](#installation) instruction and execute the following Java code:
+Please follow the [installation](#installation) instructions. Here is an example of how to use ynab-sdk in your project.
 
 ```java
 
 import ynab.client.invoker.*;
 import ynab.client.invoker.auth.*;
 import ynab.client.model.*;
-import ynab.client.api.AccountsApi;
+import ynab.client.api.BudgetsApi;
 
 import java.io.File;
 import java.util.*;

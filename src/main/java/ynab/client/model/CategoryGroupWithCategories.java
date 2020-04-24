@@ -24,7 +24,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import ynab.client.model.Category;
 import ynab.client.model.CategoryGroup;
 
@@ -34,7 +33,7 @@ import ynab.client.model.CategoryGroup;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class CategoryGroupWithCategories {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
@@ -48,7 +47,7 @@ public class CategoryGroupWithCategories {
   @SerializedName("categories")
   private List<Category> categories = new ArrayList<Category>();
 
-  public CategoryGroupWithCategories id(UUID id) {
+  public CategoryGroupWithCategories id(String id) {
     this.id = id;
     return this;
   }
@@ -58,11 +57,11 @@ public class CategoryGroupWithCategories {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 

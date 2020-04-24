@@ -13,27 +13,59 @@
 
 package ynab.client.api;
 
+import com.squareup.okhttp.Call;
+import org.junit.Before;
+import org.mockito.Matchers;
+import ynab.client.invoker.ApiClient;
 import ynab.client.invoker.ApiException;
-import ynab.client.model.AccountResponse;
-import ynab.client.model.AccountsResponse;
-import ynab.client.model.ErrorResponse;
-import java.util.UUID;
-import org.junit.Test;
-import org.junit.Ignore;
+import ynab.client.model.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
+
+import org.junit.Test;
+
 import java.util.List;
-import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
+
+import ynab.client.invoker.ApiResponse;
 
 /**
  * API tests for AccountsApi
  */
-@Ignore
 public class AccountsApiTest {
+    private ApiClient mockApiClient;
 
-    private final AccountsApi api = new AccountsApi();
+    private AccountsApi accountsApi;
+    private AccountResponse accountResponse;
+    private AccountsResponse accountsResponse;
+    private final String budgetId = "someBudgetId";
+    private final String accountId = "someAccountId";
 
+    @Before
+    public void setup(){
+        System.out.println("Setup");
+        mockApiClient = mock(ApiClient.class);
+        doReturn("anything").when(mockApiClient).escapeString(anyString());
+        accountsApi = new AccountsApi(mockApiClient);
+        Account account = new Account();
+        account.setName("someName");
+        account.setId("someId");
+
+        AccountWrapper accountWrapper = new AccountWrapper();
+        accountWrapper.setAccount(account);
+        accountResponse = new AccountResponse();
+        accountResponse.setData(accountWrapper);
+
+        AccountsWrapper accountsWrapper = new AccountsWrapper();
+        List<Account> accountsList = new LinkedList<>();
+        accountsList.add(account);
+        accountsWrapper.setAccounts(accountsList);
+        accountsResponse = new AccountsResponse();
+        accountsResponse.setData(accountsWrapper);
+    }
     
     /**
      * Single account
@@ -45,11 +77,11 @@ public class AccountsApiTest {
      */
     @Test
     public void getAccountByIdTest() throws ApiException {
-        UUID budgetId = null;
-        UUID accountId = null;
-        AccountResponse response = api.getAccountById(budgetId, accountId);
-
-        // TODO: test validations
+        ApiResponse<AccountResponse> mockResponse = new ApiResponse<AccountResponse>(200, null, accountResponse);
+        doReturn(mockResponse).when(mockApiClient).execute(any(Call.class), Matchers.<Class<AccountResponse>>any());
+        AccountResponse response = accountsApi.getAccountById(budgetId, accountId);
+        assertEquals(response.getData().getAccount().getId(), "someId");
+        assertEquals(response.getData().getAccount().getName(), "someName");
     }
     
     /**
@@ -62,10 +94,10 @@ public class AccountsApiTest {
      */
     @Test
     public void getAccountsTest() throws ApiException {
-        UUID budgetId = null;
-        AccountsResponse response = api.getAccounts(budgetId);
-
-        // TODO: test validations
+        ApiResponse<AccountsResponse> mockResponse = new ApiResponse<AccountsResponse>(200, null, accountsResponse);
+        doReturn(mockResponse).when(mockApiClient).execute(any(Call.class), Matchers.<Class<AccountsResponse>>any());
+        AccountsResponse response = accountsApi.getAccounts(budgetId);
+        assertEquals(response.getData().getAccounts().get(0).getId(), "someId");
     }
     
 }

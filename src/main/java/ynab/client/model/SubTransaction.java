@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.List;
 
 /**
  * SubTransaction
@@ -31,10 +31,10 @@ import java.util.UUID;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class SubTransaction {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("transaction_id")
-  private UUID transactionId = null;
+  private String transactionId = null;
 
   @SerializedName("amount")
   private BigDecimal amount = null;
@@ -42,7 +42,7 @@ public class SubTransaction {
   @SerializedName("deleted")
   private Boolean deleted = null;
 
-  public SubTransaction id(UUID id) {
+  public SubTransaction id(String id) {
     this.id = id;
     return this;
   }
@@ -52,15 +52,15 @@ public class SubTransaction {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public SubTransaction transactionId(UUID transactionId) {
+  public SubTransaction transactionId(String transactionId) {
     this.transactionId = transactionId;
     return this;
   }
@@ -70,11 +70,11 @@ public class SubTransaction {
    * @return transactionId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getTransactionId() {
+  public String getTransactionId() {
     return transactionId;
   }
 
-  public void setTransactionId(UUID transactionId) {
+  public void setTransactionId(String transactionId) {
     this.transactionId = transactionId;
   }
 

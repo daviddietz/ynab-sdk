@@ -31,7 +31,6 @@ import ynab.client.model.ErrorResponse;
 import org.threeten.bp.LocalDate;
 import ynab.client.model.MonthDetailResponse;
 import ynab.client.model.MonthSummariesResponse;
-import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -67,12 +66,12 @@ public class MonthsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBudgetMonthCall(UUID budgetId, LocalDate month, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getBudgetMonthCall(String budgetId, LocalDate month, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/budgets/{budget_id}/months/{month}"
-            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()))
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId))
             .replaceAll("\\{" + "month" + "\\}", apiClient.escapeString(month.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -111,7 +110,7 @@ public class MonthsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBudgetMonthValidateBeforeCall(UUID budgetId, LocalDate month, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBudgetMonthValidateBeforeCall(String budgetId, LocalDate month, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -137,7 +136,7 @@ public class MonthsApi {
      * @return MonthDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MonthDetailResponse getBudgetMonth(UUID budgetId, LocalDate month) throws ApiException {
+    public MonthDetailResponse getBudgetMonth(String budgetId, LocalDate month) throws ApiException {
         ApiResponse<MonthDetailResponse> resp = getBudgetMonthWithHttpInfo(budgetId, month);
         return resp.getData();
     }
@@ -150,7 +149,7 @@ public class MonthsApi {
      * @return ApiResponse&lt;MonthDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MonthDetailResponse> getBudgetMonthWithHttpInfo(UUID budgetId, LocalDate month) throws ApiException {
+    public ApiResponse<MonthDetailResponse> getBudgetMonthWithHttpInfo(String budgetId, LocalDate month) throws ApiException {
         com.squareup.okhttp.Call call = getBudgetMonthValidateBeforeCall(budgetId, month, null, null);
         Type localVarReturnType = new TypeToken<MonthDetailResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -165,7 +164,7 @@ public class MonthsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBudgetMonthAsync(UUID budgetId, LocalDate month, final ApiCallback<MonthDetailResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBudgetMonthAsync(String budgetId, LocalDate month, final ApiCallback<MonthDetailResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -199,7 +198,7 @@ public class MonthsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBudgetMonthsCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getBudgetMonthsCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -242,7 +241,7 @@ public class MonthsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBudgetMonthsValidateBeforeCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBudgetMonthsValidateBeforeCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -262,7 +261,7 @@ public class MonthsApi {
      * @return MonthSummariesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public MonthSummariesResponse getBudgetMonths(UUID budgetId) throws ApiException {
+    public MonthSummariesResponse getBudgetMonths(String budgetId) throws ApiException {
         ApiResponse<MonthSummariesResponse> resp = getBudgetMonthsWithHttpInfo(budgetId);
         return resp.getData();
     }
@@ -274,7 +273,7 @@ public class MonthsApi {
      * @return ApiResponse&lt;MonthSummariesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<MonthSummariesResponse> getBudgetMonthsWithHttpInfo(UUID budgetId) throws ApiException {
+    public ApiResponse<MonthSummariesResponse> getBudgetMonthsWithHttpInfo(String budgetId) throws ApiException {
         com.squareup.okhttp.Call call = getBudgetMonthsValidateBeforeCall(budgetId, null, null);
         Type localVarReturnType = new TypeToken<MonthSummariesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -288,7 +287,7 @@ public class MonthsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBudgetMonthsAsync(UUID budgetId, final ApiCallback<MonthSummariesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBudgetMonthsAsync(String budgetId, final ApiCallback<MonthSummariesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

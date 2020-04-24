@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.List;
 import org.threeten.bp.LocalDate;
 
 /**
@@ -32,7 +32,7 @@ import org.threeten.bp.LocalDate;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class ScheduledTransactionSummary {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("date_first")
   private LocalDate dateFirst = null;
@@ -116,12 +116,12 @@ public class ScheduledTransactionSummary {
   private BigDecimal amount = null;
 
   @SerializedName("account_id")
-  private UUID accountId = null;
+  private String accountId = null;
 
   @SerializedName("deleted")
   private Boolean deleted = null;
 
-  public ScheduledTransactionSummary id(UUID id) {
+  public ScheduledTransactionSummary id(String id) {
     this.id = id;
     return this;
   }
@@ -131,11 +131,11 @@ public class ScheduledTransactionSummary {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -211,7 +211,7 @@ public class ScheduledTransactionSummary {
     this.amount = amount;
   }
 
-  public ScheduledTransactionSummary accountId(UUID accountId) {
+  public ScheduledTransactionSummary accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -221,11 +221,11 @@ public class ScheduledTransactionSummary {
    * @return accountId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getAccountId() {
+  public String getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(UUID accountId) {
+  public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 

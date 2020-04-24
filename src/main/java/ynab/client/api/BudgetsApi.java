@@ -31,7 +31,6 @@ import java.math.BigDecimal;
 import ynab.client.model.BudgetDetailResponse;
 import ynab.client.model.BudgetSummaryResponse;
 import ynab.client.model.ErrorResponse;
-import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -67,12 +66,12 @@ public class BudgetsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getBudgetByIdCall(UUID budgetId, BigDecimal lastKnowledgeOfServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getBudgetByIdCall(String budgetId, BigDecimal lastKnowledgeOfServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/budgets/{budget_id}"
-            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -112,7 +111,7 @@ public class BudgetsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getBudgetByIdValidateBeforeCall(UUID budgetId, BigDecimal lastKnowledgeOfServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getBudgetByIdValidateBeforeCall(String budgetId, BigDecimal lastKnowledgeOfServer, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -133,7 +132,7 @@ public class BudgetsApi {
      * @return BudgetDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public BudgetDetailResponse getBudgetById(UUID budgetId, BigDecimal lastKnowledgeOfServer) throws ApiException {
+    public BudgetDetailResponse getBudgetById(String budgetId, BigDecimal lastKnowledgeOfServer) throws ApiException {
         ApiResponse<BudgetDetailResponse> resp = getBudgetByIdWithHttpInfo(budgetId, lastKnowledgeOfServer);
         return resp.getData();
     }
@@ -146,7 +145,7 @@ public class BudgetsApi {
      * @return ApiResponse&lt;BudgetDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<BudgetDetailResponse> getBudgetByIdWithHttpInfo(UUID budgetId, BigDecimal lastKnowledgeOfServer) throws ApiException {
+    public ApiResponse<BudgetDetailResponse> getBudgetByIdWithHttpInfo(String budgetId, BigDecimal lastKnowledgeOfServer) throws ApiException {
         com.squareup.okhttp.Call call = getBudgetByIdValidateBeforeCall(budgetId, lastKnowledgeOfServer, null, null);
         Type localVarReturnType = new TypeToken<BudgetDetailResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -161,7 +160,7 @@ public class BudgetsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getBudgetByIdAsync(UUID budgetId, BigDecimal lastKnowledgeOfServer, final ApiCallback<BudgetDetailResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getBudgetByIdAsync(String budgetId, BigDecimal lastKnowledgeOfServer, final ApiCallback<BudgetDetailResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

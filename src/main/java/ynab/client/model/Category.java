@@ -23,7 +23,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 /**
  * Category
@@ -31,10 +30,10 @@ import java.util.UUID;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class Category {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("category_group_id")
-  private UUID categoryGroupId = null;
+  private String categoryGroupId = null;
 
   @SerializedName("name")
   private String name = null;
@@ -54,7 +53,7 @@ public class Category {
   @SerializedName("deleted")
   private Boolean deleted = null;
 
-  public Category id(UUID id) {
+  public Category id(String id) {
     this.id = id;
     return this;
   }
@@ -64,15 +63,15 @@ public class Category {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public Category categoryGroupId(UUID categoryGroupId) {
+  public Category categoryGroupId(String categoryGroupId) {
     this.categoryGroupId = categoryGroupId;
     return this;
   }
@@ -82,11 +81,11 @@ public class Category {
    * @return categoryGroupId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getCategoryGroupId() {
+  public String getCategoryGroupId() {
     return categoryGroupId;
   }
 
-  public void setCategoryGroupId(UUID categoryGroupId) {
+  public void setCategoryGroupId(String categoryGroupId) {
     this.categoryGroupId = categoryGroupId;
   }
 

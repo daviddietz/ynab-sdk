@@ -30,7 +30,6 @@ import java.io.IOException;
 import ynab.client.model.CategoriesResponse;
 import ynab.client.model.CategoryResponse;
 import ynab.client.model.ErrorResponse;
-import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class CategoriesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCategoriesCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCategoriesCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -108,7 +107,7 @@ public class CategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCategoriesValidateBeforeCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCategoriesValidateBeforeCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -128,7 +127,7 @@ public class CategoriesApi {
      * @return CategoriesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CategoriesResponse getCategories(UUID budgetId) throws ApiException {
+    public CategoriesResponse getCategories(String budgetId) throws ApiException {
         ApiResponse<CategoriesResponse> resp = getCategoriesWithHttpInfo(budgetId);
         return resp.getData();
     }
@@ -140,7 +139,7 @@ public class CategoriesApi {
      * @return ApiResponse&lt;CategoriesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CategoriesResponse> getCategoriesWithHttpInfo(UUID budgetId) throws ApiException {
+    public ApiResponse<CategoriesResponse> getCategoriesWithHttpInfo(String budgetId) throws ApiException {
         com.squareup.okhttp.Call call = getCategoriesValidateBeforeCall(budgetId, null, null);
         Type localVarReturnType = new TypeToken<CategoriesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -154,7 +153,7 @@ public class CategoriesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCategoriesAsync(UUID budgetId, final ApiCallback<CategoriesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCategoriesAsync(String budgetId, final ApiCallback<CategoriesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -189,7 +188,7 @@ public class CategoriesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCategoryByIdCall(UUID budgetId, UUID categoryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getCategoryByIdCall(String budgetId, String categoryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -233,7 +232,7 @@ public class CategoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCategoryByIdValidateBeforeCall(UUID budgetId, UUID categoryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getCategoryByIdValidateBeforeCall(String budgetId, String categoryId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -259,7 +258,7 @@ public class CategoriesApi {
      * @return CategoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CategoryResponse getCategoryById(UUID budgetId, UUID categoryId) throws ApiException {
+    public CategoryResponse getCategoryById(String budgetId, String categoryId) throws ApiException {
         ApiResponse<CategoryResponse> resp = getCategoryByIdWithHttpInfo(budgetId, categoryId);
         return resp.getData();
     }
@@ -272,7 +271,7 @@ public class CategoriesApi {
      * @return ApiResponse&lt;CategoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CategoryResponse> getCategoryByIdWithHttpInfo(UUID budgetId, UUID categoryId) throws ApiException {
+    public ApiResponse<CategoryResponse> getCategoryByIdWithHttpInfo(String budgetId, String categoryId) throws ApiException {
         com.squareup.okhttp.Call call = getCategoryByIdValidateBeforeCall(budgetId, categoryId, null, null);
         Type localVarReturnType = new TypeToken<CategoryResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -287,7 +286,7 @@ public class CategoriesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCategoryByIdAsync(UUID budgetId, UUID categoryId, final ApiCallback<CategoryResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getCategoryByIdAsync(String budgetId, String categoryId, final ApiCallback<CategoryResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

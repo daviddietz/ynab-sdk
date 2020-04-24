@@ -13,28 +13,64 @@
 
 package ynab.client.api;
 
+import com.squareup.okhttp.Call;
+import org.junit.Before;
+import org.mockito.Matchers;
+import ynab.client.invoker.ApiClient;
 import ynab.client.invoker.ApiException;
 import java.math.BigDecimal;
-import ynab.client.model.BudgetDetailResponse;
-import ynab.client.model.BudgetSummaryResponse;
-import ynab.client.model.ErrorResponse;
-import java.util.UUID;
+
+import ynab.client.invoker.ApiResponse;
+import ynab.client.model.*;
+
+import java.util.*;
+
 import org.junit.Test;
 import org.junit.Ignore;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
 
 /**
  * API tests for BudgetsApi
  */
-@Ignore
 public class BudgetsApiTest {
+    private ApiClient mockApiClient;
 
-    private final BudgetsApi api = new BudgetsApi();
+    private BudgetsApi budgetsApi;
+    private BudgetDetailResponse budgetDetailResponse;
+    private BudgetSummaryResponse budgetSummaryResponse;
+    private final String budgetId = "someBudgetId";
+    private final String accountId = "someAccountId";
 
+    @Before
+    public void setup(){
+        System.out.println("Setup");
+        mockApiClient = mock(ApiClient.class);
+        doReturn("anything").when(mockApiClient).escapeString(anyString());
+        budgetsApi = new BudgetsApi(mockApiClient);
+        BudgetDetail budgetDetail = new BudgetDetail();
+        budgetDetail.setId("someId");
+
+        BudgetDetailWrapper budgetDetailWrapper = new BudgetDetailWrapper();
+        budgetDetailWrapper.setBudget(budgetDetail);
+        budgetDetailResponse = new BudgetDetailResponse();
+        budgetDetailResponse.setData(budgetDetailWrapper);
+
+        BudgetSummary budgetSummary = new BudgetSummary();
+        budgetSummary.setId("someId");
+        BudgetSummaryWrapper budgetSummaryWrapper = new BudgetSummaryWrapper();
+        List<BudgetSummary> budgetSummaryList = new LinkedList<>();
+        budgetSummaryList.add(budgetSummary);
+        budgetSummaryWrapper.setBudgets(budgetSummaryList);
+        budgetSummaryResponse = new BudgetSummaryResponse();
+        budgetSummaryResponse.setData(budgetSummaryWrapper);
+    }
     
     /**
      * Single budget
@@ -46,11 +82,11 @@ public class BudgetsApiTest {
      */
     @Test
     public void getBudgetByIdTest() throws ApiException {
-        UUID budgetId = null;
         BigDecimal lastKnowledgeOfServer = null;
-        BudgetDetailResponse response = api.getBudgetById(budgetId, lastKnowledgeOfServer);
-
-        // TODO: test validations
+        ApiResponse<BudgetDetailResponse> budgetDetailResponseApiResponse = new ApiResponse<BudgetDetailResponse>(200, null, budgetDetailResponse);
+        doReturn(budgetDetailResponseApiResponse).when(mockApiClient).execute(any(Call.class), Matchers.<Class<BudgetDetailResponse>>any());
+        BudgetDetailResponse response = budgetsApi.getBudgetById(budgetId, lastKnowledgeOfServer);
+        assertEquals(response.getData().getBudget().getId(), "someId");
     }
     
     /**
@@ -63,9 +99,11 @@ public class BudgetsApiTest {
      */
     @Test
     public void getBudgetsTest() throws ApiException {
-        BudgetSummaryResponse response = api.getBudgets();
-
-        // TODO: test validations
+        BigDecimal lastKnowledgeOfServer = null;
+        ApiResponse<BudgetSummaryResponse> budgetDetailResponseApiResponse = new ApiResponse<>(200, null, budgetSummaryResponse);
+        doReturn(budgetDetailResponseApiResponse).when(mockApiClient).execute(any(Call.class), Matchers.<Class<BudgetDetailResponse>>any());
+        BudgetSummaryResponse response = budgetsApi.getBudgets();
+        assertEquals(response.getData().getBudgets().get(0).getId(), "someId");
     }
     
 }

@@ -30,7 +30,6 @@ import java.io.IOException;
 import ynab.client.model.ErrorResponse;
 import ynab.client.model.PayeeResponse;
 import ynab.client.model.PayeesResponse;
-import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -66,13 +65,13 @@ public class PayeesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getPayeeByIdCall(UUID budgetId, UUID payeeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getPayeeByIdCall(String budgetId, String payeeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/budgets/{budget_id}/payees/{payee_id}"
-            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()))
-            .replaceAll("\\{" + "payee_id" + "\\}", apiClient.escapeString(payeeId.toString()));
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId))
+            .replaceAll("\\{" + "payee_id" + "\\}", apiClient.escapeString(payeeId));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -110,7 +109,7 @@ public class PayeesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getPayeeByIdValidateBeforeCall(UUID budgetId, UUID payeeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getPayeeByIdValidateBeforeCall(String budgetId, String payeeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -136,7 +135,7 @@ public class PayeesApi {
      * @return PayeeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PayeeResponse getPayeeById(UUID budgetId, UUID payeeId) throws ApiException {
+    public PayeeResponse getPayeeById(String budgetId, String payeeId) throws ApiException {
         ApiResponse<PayeeResponse> resp = getPayeeByIdWithHttpInfo(budgetId, payeeId);
         return resp.getData();
     }
@@ -149,7 +148,7 @@ public class PayeesApi {
      * @return ApiResponse&lt;PayeeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PayeeResponse> getPayeeByIdWithHttpInfo(UUID budgetId, UUID payeeId) throws ApiException {
+    public ApiResponse<PayeeResponse> getPayeeByIdWithHttpInfo(String budgetId, String payeeId) throws ApiException {
         com.squareup.okhttp.Call call = getPayeeByIdValidateBeforeCall(budgetId, payeeId, null, null);
         Type localVarReturnType = new TypeToken<PayeeResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -164,7 +163,7 @@ public class PayeesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPayeeByIdAsync(UUID budgetId, UUID payeeId, final ApiCallback<PayeeResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPayeeByIdAsync(String budgetId, String payeeId, final ApiCallback<PayeeResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -198,12 +197,12 @@ public class PayeesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getPayeesCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getPayeesCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/budgets/{budget_id}/payees"
-            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId.toString()));
+            .replaceAll("\\{" + "budget_id" + "\\}", apiClient.escapeString(budgetId));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -241,7 +240,7 @@ public class PayeesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getPayeesValidateBeforeCall(UUID budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getPayeesValidateBeforeCall(String budgetId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'budgetId' is set
         if (budgetId == null) {
@@ -261,7 +260,7 @@ public class PayeesApi {
      * @return PayeesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public PayeesResponse getPayees(UUID budgetId) throws ApiException {
+    public PayeesResponse getPayees(String budgetId) throws ApiException {
         ApiResponse<PayeesResponse> resp = getPayeesWithHttpInfo(budgetId);
         return resp.getData();
     }
@@ -273,7 +272,7 @@ public class PayeesApi {
      * @return ApiResponse&lt;PayeesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<PayeesResponse> getPayeesWithHttpInfo(UUID budgetId) throws ApiException {
+    public ApiResponse<PayeesResponse> getPayeesWithHttpInfo(String budgetId) throws ApiException {
         com.squareup.okhttp.Call call = getPayeesValidateBeforeCall(budgetId, null, null);
         Type localVarReturnType = new TypeToken<PayeesResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -287,7 +286,7 @@ public class PayeesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getPayeesAsync(UUID budgetId, final ApiCallback<PayeesResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getPayeesAsync(String budgetId, final ApiCallback<PayeesResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

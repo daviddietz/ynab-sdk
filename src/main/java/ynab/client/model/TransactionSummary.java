@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.UUID;
+import java.util.List;
 import org.threeten.bp.LocalDate;
 
 /**
@@ -32,7 +32,7 @@ import org.threeten.bp.LocalDate;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-25T01:42:20.552-05:00")
 public class TransactionSummary {
   @SerializedName("id")
-  private UUID id = null;
+  private String id = null;
 
   @SerializedName("date")
   private LocalDate date = null;
@@ -96,12 +96,12 @@ public class TransactionSummary {
   private Boolean approved = null;
 
   @SerializedName("account_id")
-  private UUID accountId = null;
+  private String accountId = null;
 
   @SerializedName("deleted")
   private Boolean deleted = null;
 
-  public TransactionSummary id(UUID id) {
+  public TransactionSummary id(String id) {
     this.id = id;
     return this;
   }
@@ -111,11 +111,11 @@ public class TransactionSummary {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -191,7 +191,7 @@ public class TransactionSummary {
     this.approved = approved;
   }
 
-  public TransactionSummary accountId(UUID accountId) {
+  public TransactionSummary accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
@@ -201,11 +201,11 @@ public class TransactionSummary {
    * @return accountId
   **/
   @ApiModelProperty(required = true, value = "")
-  public UUID getAccountId() {
+  public String getAccountId() {
     return accountId;
   }
 
-  public void setAccountId(UUID accountId) {
+  public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
 
