@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**UUID**](UUID.md) |  | 
+**id** | **String** |  | 
 **name** | **String** |  | 
 **dateFormat** | [**DateFormat**](DateFormat.md) |  |  [optional]
 **currencyFormat** | [**CurrencyFormat**](CurrencyFormat.md) |  |  [optional]

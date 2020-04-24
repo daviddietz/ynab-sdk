@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**UUID**](UUID.md) |  | 
+**id** | **String** |  | 
 **date** | [**LocalDate**](LocalDate.md) |  | 
 **amount** | [**BigDecimal**](BigDecimal.md) | The transaction amount in milliunits format | 
 **cleared** | [**ClearedEnum**](#ClearedEnum) | The cleared status of the transaction | 
 **approved** | **Boolean** | Whether or not the transaction is approved | 
-**accountId** | [**UUID**](UUID.md) |  | 
+**accountId** | **String** |  | 
 **deleted** | **Boolean** | Whether or not the transaction has been deleted.  Deleted transactions will only be included in delta requests. | 
 
 

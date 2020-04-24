@@ -210,7 +210,26 @@ Authentication schemes defined for the API:
 
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
-## Author
+## Troubleshooting
+#### Potential install issues
+Error:
+```
+Error occurred during initialization of VM
+Could not reserve enough space for object heap
+```
+Fix:
+```
+Run the JVM with -XX:MaxHeapSize=512m (or any big number as you need) (or -Xmx512m for short)
+```
+[stack overflow source](https://stackoverflow.com/questions/4401396/could-not-reserve-enough-space-for-object-heap)
 
+Windows 10 specific fix:
 
+Go to Start -> Control Panel -> System -> Advanced(tab) -> Environment Variables -> System
+
+Variables -> New: Variable
+```
+name: _JAVA_OPTIONS
+Variable value: -Xmx512M
+```
 

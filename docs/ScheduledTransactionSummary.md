@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**UUID**](UUID.md) |  | 
+**id** | **String** |  | 
 **dateFirst** | [**LocalDate**](LocalDate.md) | The first date for which the Scheduled Transaction was scheduled. | 
 **dateNext** | [**LocalDate**](LocalDate.md) | The next date for which the Scheduled Transaction is scheduled. | 
 **frequency** | [**FrequencyEnum**](#FrequencyEnum) |  | 
 **amount** | [**BigDecimal**](BigDecimal.md) | The scheduled transaction amount in milliunits format | 
-**accountId** | [**UUID**](UUID.md) |  | 
+**accountId** | **String** |  | 
 **deleted** | **Boolean** | Whether or not the scheduled transaction has been deleted.  Deleted scheduled transactions will only be included in delta requests. | 
 
 
